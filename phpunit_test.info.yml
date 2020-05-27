@@ -1,0 +1,6 @@
+name: Phpunit test
+description: 'Custom module to try out phpunit test cases.'
+package: Custom
+
+type: module
+core: 8.x

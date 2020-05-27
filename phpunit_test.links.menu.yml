@@ -1,0 +1,5 @@
+test.test:
+  title: Test page link
+  description: 'This is a testing link'
+  parent: system.admin_structure
+  route_name: test.test

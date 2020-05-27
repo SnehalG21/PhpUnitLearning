@@ -1,0 +1,7 @@
+test.test:
+  path: '/test-page'
+  defaults:
+    _controller: '\Drupal\phpunit_test\Controller\PhpController::test'
+    _title: 'Test'
+  requirements:
+    _permission: 'access content'
