@@ -2,47 +2,54 @@
 
 namespace Drupal\Tests\phpunit_test\Functional;
 
-
 use Drupal\Tests\BrowserTestBase;
+use Drupal\Core\Url;
 
 /**
  * Simple test to ensure page exists.
  *
- * @group phpunit_example
+ * @group phpunit_test
  */
-class FunctTest extends BrowserTestBase
-{
+class FunctTest extends BrowserTestBase {
+
+  /**
+   * {@inheritdoc}
+   */
+  protected $defaultTheme = 'classy';
 
   /**
    * Modules to install.
    *
    * @var array
    */
-  public static $modules = array('phpunit_test');
+  public static $modules = ['phpunit_test'];
 
   /**
-   * A simple user with 'access content' permission
+   * A simple user with 'access content' permission.
    */
-  private $user;
+  protected $user;
 
   /**
-   * Perform any initial set up tasks that run before every test method
+   * {@inheritdoc}
    */
-  public function setUp()
-  {
+  protected function setUp() {
     parent::setUp();
-    $this->user = $this->drupalCreateUser(array('access content'));
   }
 
-
-  public function testCustomPageExists()
-  {
-    // Login
+  /**
+   * Test method to check page and content.
+   */
+  public function testCustomPageExists() {
+    $this->user = $this->drupalCreateUser(['access content']);
+    // Login.
     $this->drupalLogin($this->user);
-    // Test the page is found
-    $this->drupalGet('test-page');
+    // Test the page is found.
+    $test_path = Url::fromRoute('test.test');
+    $this->drupalGet($test_path);
+    // $this->getSession()->getPage()->getContent();
     $this->assertResponse(200);
 
-    $this->assertText(sprintf('Hello Snehal.'), 'Correct message is shown.');
+     $this->assertText('Hello Snehal.', 'Correct message is shown.');
   }
+
 }

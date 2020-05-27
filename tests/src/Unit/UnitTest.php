@@ -8,22 +8,23 @@ use Drupal\phpunit_test\Unit;
 /**
  * Simple test to ensure that asserts pass.
  *
- * @group phpunit_example
+ * @group phpunit_test
  */
 class UnitTest extends UnitTestCase {
 
   protected $unit;
 
-  public function setUp()
-  {
+  /**
+   *
+   */
+  public function setUp() {
     $this->unit = new Unit();
   }
 
   /**
    * @covers Drupal\phpunit_test\Unit::setLength
    */
-
-  public function testsetLength(){
+  public function testsetLength() {
     $this->assertEquals(0, $this->unit->getLength());
     $this->unit->setLength(8);
     $this->assertEquals(8, $this->unit->getLength());
@@ -32,12 +33,14 @@ class UnitTest extends UnitTestCase {
   /**
    * @covers Drupal\phpunit_test\Unit::getLength
    */
-
   public function testGetLength() {
     $this->unit->setLength(9);
     $this->assertNotEquals(10, $this->unit->getLength());
   }
 
+  /**
+   *
+   */
   public function tearDown() {
     unset($this->unit);
   }

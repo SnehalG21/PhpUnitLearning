@@ -4,6 +4,9 @@ namespace Drupal\phpunit_test\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
 
+/**
+ *
+ */
 class PhpController extends ControllerBase {
 
   /**
@@ -11,7 +14,8 @@ class PhpController extends ControllerBase {
    */
   public function test() {
     return [
-        '#markup' => t('Hello Snehal.'),
+      '#markup' => t('Hello Snehal.'),
     ];
   }
+
 }
